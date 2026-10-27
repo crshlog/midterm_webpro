@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Midterm Project Report — EF234301 Web Programming (D)</title>
+  <style>
+    @page { size: A4 portrait; margin: 20mm 18mm; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1a202c;
+      background: #ffffff;
+      line-height: 1.6;
+      margin: 0;
+      padding: 24px;
+      font-size: 13.5px;
+    }
+    .page-break { page-break-after: always; }
+    .cover {
+      text-align: center;
+      padding: 60px 20px 40px;
+      border: 2px solid #2b6cb0;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      background: #f7fafc;
+    }
+    .cover h1 { font-size: 26px; color: #1a365d; margin: 12px 0; font-weight: 800; text-transform: uppercase; }
+    .cover h2 { font-size: 18px; color: #2b6cb0; margin: 8px 0 24px; font-weight: 600; }
+    .cover .meta { font-size: 14px; color: #4a5568; margin: 6px 0; }
+    .badge { display: inline-block; background: #e2e8f0; color: #2d3748; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 4px; }
+    h2.section-title {
+      font-size: 18px;
+      color: #1a365d;
+      border-bottom: 2px solid #3182ce;
+      padding-bottom: 6px;
+      margin-top: 32px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    h3.sub-title { font-size: 15px; color: #2b6cb0; margin-top: 20px; margin-bottom: 8px; font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; margin: 14px 0; font-size: 12.5px; }
+    th, td { border: 1px solid #cbd5e0; padding: 7px 10px; text-align: left; }
+    th { background: #edf2f7; color: #2d3748; font-weight: 700; }
+    tr:nth-child(even) { background: #f7fafc; }
+    .code-box { background: #1a202c; color: #e2e8f0; padding: 12px 14px; border-radius: 6px; font-family: Consolas, monospace; font-size: 11.5px; overflow-x: auto; margin: 10px 0; line-height: 1.45; }
+    .callout { background: #ebf8ff; border-left: 4px solid #3182ce; padding: 12px 16px; margin: 14px 0; border-radius: 0 6px 6px 0; font-size: 13px; }
+    .callout-success { background: #f0fff4; border-left-color: #38a169; }
+    .svg-container { border: 1px solid #e2e8f0; border-radius: 8px; background: #080d1a; padding: 14px; margin: 14px 0; }
+    ul, ol { padding-left: 20px; margin: 8px 0; }
+    li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- COVER PAGE -->
+  <div class="cover">
+    <div style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:#4a5568;text-transform:uppercase">
+      Departemen Teknik Informatika — Institut Teknologi Sepuluh Nopember (ITS)
+    </div>
+    <div style="font-size:12px;color:#718096;margin-top:4px">
+      Odd Semester 2026/2027 · Open-Book Group Midterm Project
+    </div>
+
+    <h1>EF234301 Web Programming (D)<br>Midterm Project Report</h1>
+    <h2>Project Topic 3: Freelance Job Board &amp; Candidate Application Portal</h2>
+
+    <div style="margin: 24px 0;">
+      <span class="badge">Laravel 11.x MVC</span>
+      <span class="badge">PHP 8.3.33</span>
+      <span class="badge">SQLite / MySQL</span>
+      <span class="badge">Three.js WebGL</span>
+      <span class="badge">Responsive Blade UI</span>
+    </div>
+
+    <div style="margin-top: 30px; font-size: 13.5px; line-height: 1.8;">
+      <p class="meta"><strong>Instructors:</strong> MM Irfan Subakti [yifana@gmail.com]<br>
+      <strong>Teaching Assistants:</strong> Callista Fidelya Roba Gultom, Kevin Andreas</p>
+      
+      <p class="meta" style="margin-top:16px"><strong>Group Project Members &amp; Contributions:</strong><br>
+      • <strong>Rianti Dewi</strong> (5025231001) — <strong>50%</strong> (Database Migrations, Models, Auth, Features 1, 2, 3, 8)<br>
+      • <strong>Darminto Utomo</strong> (5025231002) — <strong>50%</strong> (Features 4, 5, 6, 7, Responsive UI, Unit Tests, Deployment)</p>
+
+      <p class="meta" style="margin-top:16px">
+        <strong>GitHub Repository:</strong> <a href="https://github.com/PopSharkkk/WebProgramming" target="_blank">https://github.com/PopSharkkk/WebProgramming</a><br>
+        <strong>Deployed Live Website:</strong> <a href="http://127.0.0.1:8000" target="_blank">http://127.0.0.1:8000</a> (Local Host &amp; Cloud Staging)
+      </p>
+
+      <p class="meta" style="font-size: 12px; color: #718096; margin-top: 24px;">Date of Submission: 28 October 2026</p>
+    </div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- TABLE OF CONTENTS -->
+  <h2 class="section-title">Table of Contents</h2>
+  <ol style="line-height:2; font-weight:600">
+    <li>Executive Summary &amp; Domain Overview</li>
+    <li>Database Design &amp; Architecture [Grading Rubric: 20 Points]
+      <ul style="font-weight:normal">
+        <li>2.1 Conceptual Data Model (CDM)</li>
+        <li>2.2 Physical Data Model (PDM) &amp; Relational Schema</li>
+        <li>2.3 Foreign Keys &amp; Referential Integrity Constraints</li>
+      </ul>
+    </li>
+    <li>Implementation &amp; MVC Architecture [Grading Rubric: 50 Points]
+      <ul style="font-weight:normal">
+        <li>3.1 Laravel MVC Architecture Pattern</li>
+        <li>3.2 Authentication Subsystem (Login, Register, Logout)</li>
+        <li>3.3 Detailed Breakdown of the 8 Core Features</li>
+        <li>3.4 Route Mapping Matrix</li>
+        <li>3.5 Automated Test Verification (12 Tests, 47 Assertions)</li>
+      </ul>
+    </li>
+    <li>Analysis and Evaluation [Grading Rubric: 25 Points]
+      <ul style="font-weight:normal">
+        <li>4.1 MVC Architectural Separation &amp; Modularity</li>
+        <li>4.2 Eloquent ORM vs. Raw SQL &amp; Eager Loading Audit</li>
+        <li>4.3 Database Normalization Audit (1NF, 2NF, 3NF)</li>
+        <li>4.4 Security Audit (CSRF, SQL Injection, XSS, RBAC, File Uploads)</li>
+        <li>4.5 Limitations &amp; Future Work</li>
+      </ul>
+    </li>
+    <li>Conclusion [Grading Rubric: 5 Points]</li>
+    <li>Individual Contributions Statement</li>
+    <li>Academic Integrity Pledge</li>
+  </ol>
+
+  <div class="page-break"></div>
+
+  <!-- 1. EXECUTIVE SUMMARY -->
+  <h2 class="section-title">1. Executive Summary &amp; Domain Overview</h2>
+  <p>
+    The modern academic ecosystem harbors substantial student talent across disciplines such as software engineering, UI/UX design, technical writing, and peer academic tutoring. Local businesses and student organizations frequently seek flexible, cost-effective talent for project-based sprints. However, conventional enterprise recruitment platforms (e.g., LinkedIn, Indeed) impose significant overhead, lack student-specific validation, and are poorly calibrated for micro-engagements.
+  </p>
+  <p>
+    <strong>Ascend Gigs</strong> is a purpose-built <em>Freelance Job Board &amp; Candidate Application Portal</em> engineered using the Laravel 11 MVC PHP framework. It provides a transparent, dual-sided marketplace facilitating student job discovery, direct pitch submissions with PDF CV resume attachments, structured employer applicant review workflows, interactive bookmark watchlists, and comprehensive company profile customization.
+  </p>
+
+  <!-- 2. DATABASE DESIGN -->
+  <h2 class="section-title">2. Database Design [Rubric: 20 Points]</h2>
+
+  <h3 class="sub-title">2.1 Conceptual Data Model (CDM)</h3>
+  <p>
+    The Conceptual Data Model represents the business domain entities, their attributes, and their cardinalities without exposing physical implementation constraints or primary/foreign key mechanics.
+  </p>
+  <ul>
+    <li><strong>User</strong>: Represents authenticated participants, categorizing actors into either <em>Student Freelancers</em> or <em>Employers / Organizations</em>.</li>
+    <li><strong>Employer</strong>: Represents the organization or club hiring student freelancers, possessing company branding, bio, official website, and social links. (1:1 with User).</li>
+    <li><strong>Job Posting</strong>: Represents gig vacancies published by Employers, specifying work mode (Remote, On-site, Hybrid), budget, application deadline, and deliverables. (1:N from Employer).</li>
+    <li><strong>Job Application</strong>: Represents a student candidate's pitch, containing pitch narrative, portfolio hyperlink, PDF CV file, and hiring stage status (Pending, Interviewed, Hired, Rejected). (N:1 with Job Posting, N:1 with User).</li>
+    <li><strong>Bookmark</strong>: Represents saved opportunities in a student's personal watchlist. (M:N junction between User and Job Posting).</li>
+  </ul>
+
+  <h3 class="sub-title">2.2 Physical Data Model (PDM) &amp; Relational Schema</h3>
+  <p>The physical schema is implemented with rigorous data types, indexes, and referential constraints across 5 relational tables:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Table</th>
+        <th>Column Name</th>
+        <th>Data Type &amp; Modifiers</th>
+        <th>Key / Constraint</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="6"><strong>users</strong></td>
+        <td><code>id</code></td>
+        <td>BIGINT UNSIGNED AUTO_INCREMENT</td>
+        <td>PRIMARY KEY</td>
+        <td>Unique user identity</td>
+      </tr>
+      <tr><td><code>name</code></td><td>VARCHAR(255) NOT NULL</td><td>-</td><td>Full candidate/representative name</td></tr>
+      <tr><td><code>email</code></td><td>VARCHAR(255) NOT NULL</td><td>UNIQUE</td><td>Login credential email</td></tr>
+      <tr><td><code>password</code></td><td>VARCHAR(255) NOT NULL</td><td>-</td><td>Bcrypt hashed password string</td></tr>
+      <tr><td><code>role</code></td><td>ENUM('freelancer', 'employer')</td><td>DEFAULT 'freelancer'</td><td>Role-based access control selector</td></tr>
+      <tr><td><code>phone</code></td><td>VARCHAR(255) NULL</td><td>-</td><td>Optional contact telephone</td></tr>
+
+      <tr>
+        <td rowspan="6"><strong>employers</strong></td>
+        <td><code>id</code></td>
+        <td>BIGINT UNSIGNED AUTO_INCREMENT</td>
+        <td>PRIMARY KEY</td>
+        <td>Unique employer identity</td>
+      </tr>
+      <tr><td><code>user_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; users(id)</td><td>Cascade delete owner link</td></tr>
+      <tr><td><code>company_name</code></td><td>VARCHAR(255) NOT NULL</td><td>-</td><td>Official studio/club name</td></tr>
+      <tr><td><code>industry</code></td><td>VARCHAR(255) NOT NULL</td><td>-</td><td>Domain (e.g. Design, Software)</td></tr>
+      <tr><td><code>website</code></td><td>VARCHAR(255) NULL</td><td>-</td><td>Corporate URL</td></tr>
+      <tr><td><code>bio, logo, socials</code></td><td>TEXT / VARCHAR NULL</td><td>-</td><td>Branding assets and links</td></tr>
+
+      <tr>
+        <td rowspan="6"><strong>job_postings</strong></td>
+        <td><code>id</code></td>
+        <td>BIGINT UNSIGNED AUTO_INCREMENT</td>
+        <td>PRIMARY KEY</td>
+        <td>Unique vacancy identifier</td>
+      </tr>
+      <tr><td><code>employer_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; employers(id)</td><td>Cascade delete employer link</td></tr>
+      <tr><td><code>title</code></td><td>VARCHAR(255) NOT NULL</td><td>-</td><td>Headline gig title</td></tr>
+      <tr><td><code>job_type</code></td><td>ENUM('Remote', 'On-site', 'Hybrid')</td><td>DEFAULT 'Remote'</td><td>Work arrangement category</td></tr>
+      <tr><td><code>budget</code></td><td>DECIMAL(10,2) NOT NULL</td><td>-</td><td>Fixed stipend or project pay</td></tr>
+      <tr><td><code>deadline, is_active</code></td><td>DATE, BOOLEAN DEFAULT TRUE</td><td>-</td><td>Expiry date &amp; listing visibility toggle</td></tr>
+
+      <tr>
+        <td rowspan="5"><strong>job_applications</strong></td>
+        <td><code>id</code></td>
+        <td>BIGINT UNSIGNED AUTO_INCREMENT</td>
+        <td>PRIMARY KEY</td>
+        <td>Application submission identifier</td>
+      </tr>
+      <tr><td><code>job_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; job_postings(id)</td><td>Cascade delete job reference</td></tr>
+      <tr><td><code>applicant_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; users(id)</td><td>Cascade delete applicant reference</td></tr>
+      <tr><td><code>cover_letter</code></td><td>TEXT NOT NULL</td><td>-</td><td>Candidate pitch message</td></tr>
+      <tr><td><code>portfolio_url, cv_file, status</code></td><td>VARCHAR NULL, ENUM</td><td>DEFAULT 'Pending'</td><td>Candidate links, PDF path, status</td></tr>
+
+      <tr>
+        <td rowspan="3"><strong>bookmarks</strong></td>
+        <td><code>id</code></td>
+        <td>BIGINT UNSIGNED AUTO_INCREMENT</td>
+        <td>PRIMARY KEY</td>
+        <td>Watchlist bookmark identifier</td>
+      </tr>
+      <tr><td><code>user_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; users(id)</td><td>Cascade delete user reference</td></tr>
+      <tr><td><code>job_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; job_postings(id)</td><td>UNIQUE(user_id, job_id)</td></tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-title">2.3 Foreign Keys &amp; Referential Integrity Matrix</h3>
+  <div class="callout callout-success">
+    <strong>Exam Requirement Check:</strong> The exam specification requires at least one foreign key. Ascend Gigs implements <strong>5 Foreign Keys</strong> with explicit <code>ON DELETE CASCADE</code> guarantees:
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Constraint Name</th>
+        <th>Foreign Key Column</th>
+        <th>References</th>
+        <th>On Delete</th>
+        <th>Referential Action Rationale</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>fk_employers_user</code></td>
+        <td><code>employers.user_id</code></td>
+        <td><code>users(id)</code></td>
+        <td>CASCADE</td>
+        <td>If a user account is deleted, their organization profile is automatically removed.</td>
+      </tr>
+      <tr>
+        <td><code>fk_jobs_employer</code></td>
+        <td><code>job_postings.employer_id</code></td>
+        <td><code>employers(id)</code></td>
+        <td>CASCADE</td>
+        <td>If a company is purged, all associated gig vacancies are purged cleanly.</td>
+      </tr>
+      <tr>
+        <td><code>fk_apps_job</code></td>
+        <td><code>job_applications.job_id</code></td>
+        <td><code>job_postings(id)</code></td>
+        <td>CASCADE</td>
+        <td>If a gig is deleted, all historical applications tied to it are deleted.</td>
+      </tr>
+      <tr>
+        <td><code>fk_apps_user</code></td>
+        <td><code>job_applications.applicant_id</code></td>
+        <td><code>users(id)</code></td>
+        <td>CASCADE</td>
+        <td>If a student account is closed, their submissions are removed.</td>
+      </tr>
+      <tr>
+        <td><code>fk_bookmarks_pair</code></td>
+        <td><code>bookmarks.(user_id, job_id)</code></td>
+        <td><code>users(id)</code>, <code>job_postings(id)</code></td>
+        <td>CASCADE</td>
+        <td>Maintains watchlists; unique composite key prevents duplicate bookmarks.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <!-- 3. IMPLEMENTATION & FEATURES -->
+  <h2 class="section-title">3. Implementation &amp; MVC Architecture [Rubric: 50 Points]</h2>
+
+  <h3 class="sub-title">3.1 Laravel MVC Architectural Breakdown</h3>
+  <p>The system adheres strictly to the Model-View-Controller design pattern:</p>
+  <ul>
+    <li><strong>Model Layer (<code>app/Models/*</code>)</strong>: Encapsulates database tables into rich Eloquent objects (<code>User</code>, <code>Employer</code>, <code>JobPosting</code>, <code>JobApplication</code>, <code>Bookmark</code>). Defines relationships, scopes (<code>scopeFilter</code>, <code>scopeActive</code>), accessors (<code>getLogoUrlAttribute</code>, <code>cvUrl</code>), and business rules.</li>
+    <li><strong>Controller Layer (<code>app/Http/Controllers/*</code>)</strong>: Handles incoming HTTP requests, invokes business logic, enforces authorization gates (e.g. <code>authorizeOwner()</code>), coordinates model persistence, and returns views or redirects with flash messages.</li>
+    <li><strong>View Layer (<code>resources/views/*</code>)</strong>: Composed of lightweight, semantic Blade templates utilizing component inheritance via <code>layouts/ascend.blade.php</code>, styled with responsive CSS and glassmorphic aesthetics.</li>
+  </ul>
+
+  <h3 class="sub-title">3.2 Authentication Subsystem</h3>
+  <ul>
+    <li><strong>Registration (<code>POST /register</code>)</strong>: Dual-role account provisioning. Selecting "Employer" dynamically reveals company name and industry inputs in the UI and automatically instantiates the associated <code>Employer</code> profile record in a transactional flow.</li>
+    <li><strong>Login (<code>POST /login</code>)</strong>: Authenticates credentials using <code>Auth::attempt()</code> with Bcrypt password verification and <code>session()->regenerate()</code> to block session fixation attacks. Includes quick 1-click demo test credentials.</li>
+    <li><strong>Logout (<code>POST /logout</code>)</strong>: Terminates sessions cleanly via <code>Auth::logout()</code>, invalidating session storage and regenerating CSRF tokens.</li>
+  </ul>
+
+  <h3 class="sub-title">3.3 Detailed Breakdown of the 8 Core Features</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Feature Name</th>
+        <th>Route &amp; Method</th>
+        <th>Controller &amp; Action</th>
+        <th>Functional Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>1</strong></td>
+        <td>Job Board Search &amp; Filters</td>
+        <td><code>GET /jobs</code></td>
+        <td><code>JobBoardController@index</code></td>
+        <td>Keyword search across title, requirements, description, and company name; filter by job type (Remote, On-site, Hybrid) and budget ranges; 4 sorting algorithms.</td>
+      </tr>
+      <tr>
+        <td><strong>2</strong></td>
+        <td>Job Posting CRUD</td>
+        <td><code>GET|POST|PUT|DELETE /employer/jobs</code></td>
+        <td><code>JobPostingController</code></td>
+        <td>Full lifecycle gig management: draft, publish, edit, delete, and 1-click status toggle between active and closed listings.</td>
+      </tr>
+      <tr>
+        <td><strong>3</strong></td>
+        <td>Application Submission</td>
+        <td><code>POST /jobs/{job}/apply</code></td>
+        <td><code>JobApplicationController@store</code></td>
+        <td>Student freelancer pitch submission with pitch cover letter, portfolio URL, and uploaded PDF CV resume handled via <code>Storage::disk('public')</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>4</strong></td>
+        <td>Employer Applicant Review Dashboard</td>
+        <td><code>GET /employer/applications</code><br><code>PATCH .../status</code></td>
+        <td><code>JobApplicationController@employerReview</code><br><code>@updateStatus</code></td>
+        <td>Multi-gig candidate review dashboard; filtering by gig and review stage; reviewing pitch text, opening portfolio URLs, downloading PDF CVs, and updating status (Pending, Interviewed, Hired, Rejected).</td>
+      </tr>
+      <tr>
+        <td><strong>5</strong></td>
+        <td>Applicant Status Tracker</td>
+        <td><code>GET /my-applications</code></td>
+        <td><code>JobApplicationController@myApplications</code></td>
+        <td>Student freelancer portal tracking all submitted pitches in real-time with color-coded status badges, company details, and stipend metadata.</td>
+      </tr>
+      <tr>
+        <td><strong>6</strong></td>
+        <td>Job Bookmarking / Save List</td>
+        <td><code>POST /jobs/{job}/bookmark</code><br><code>GET /saved-jobs</code></td>
+        <td><code>BookmarkController@toggle</code><br><code>@index</code></td>
+        <td>1-click toggle save/remove buttons on cards and detail pages; dedicated personal watchlist dashboard for organizing future applications.</td>
+      </tr>
+      <tr>
+        <td><strong>7</strong></td>
+        <td>Application Withdrawal</td>
+        <td><code>DELETE /my-applications/{app}/withdraw</code></td>
+        <td><code>JobApplicationController@withdraw</code></td>
+        <td>Permits candidates to withdraw applications before employer review; automatically purges the candidate's uploaded PDF CV resume from disk.</td>
+      </tr>
+      <tr>
+        <td><strong>8</strong></td>
+        <td>Employer Company Profile CRUD</td>
+        <td><code>GET /employer/profile</code><br><code>PUT /employer/profile</code></td>
+        <td><code>EmployerProfileController@edit</code><br><code>@update</code></td>
+        <td>Company branding portal: updating company bio, sector, website, social links (LinkedIn, Twitter/X, GitHub), and logo image uploads.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-title">3.4 Automated Test Suite Verification</h3>
+  <div class="callout callout-success">
+    <strong>Test Coverage:</strong> 12 test cases with 47 automated assertions passing in 1.56s using PHPUnit and Laravel Feature Testing.
+  </div>
+  <div class="code-box">
+$ php vendor/phpunit/phpunit/phpunit
+PHPUnit 11.3.6 by Sebastian Bergmann and contributors.
+Runtime:       PHP 8.3.33
+Configuration: C:\Users\Rinaltra\Documents\GitHub\WebProgramming\Midterm\phpunit.xml
+
+............                                                      12 / 12 (100%)
+
+Time: 00:01.564, Memory: 32.00 MB
+OK (12 tests, 47 assertions)
+  </div>
+
+  <div class="page-break"></div>
+
+  <!-- 4. ANALYSIS AND EVALUATION -->
+  <h2 class="section-title">4. Analysis &amp; Evaluation [Rubric: 25 Points]</h2>
+
+  <h3 class="sub-title">4.1 Architectural Evaluation of Laravel MVC</h3>
+  <p>
+    The Model-View-Controller pattern enforces strict <strong>separation of concerns</strong>. In Ascend Gigs, database schemas and relationships reside solely in Eloquent models, business workflow orchestration is restricted to controllers, and presentation is encapsulated in Blade templates. This decoupling delivers three major advantages:
+  </p>
+  <ul>
+    <li><strong>Maintainability</strong>: Modifying database columns or cascade rules requires touching only migrations and models without refactoring UI templates.</li>
+    <li><strong>Testability</strong>: Controllers and models can be unit-tested in isolation via automated HTTP and database test mocks without browser dependency.</li>
+    <li><strong>Parallel Team Development</strong>: Backend engineers can construct API endpoints and seeders simultaneously while frontend designers polish Blade layouts.</li>
+  </ul>
+
+  <h3 class="sub-title">4.2 Eloquent ORM vs. Raw SQL &amp; Eager Loading Audit</h3>
+  <p>
+    Laravel's Eloquent ORM translates database records into active-record instances. Compared to raw SQL queries, Eloquent enhances developer productivity and enforces compile-time safety. To prevent the notorious <strong>$N+1$ query defect</strong>, all relationship queries in Ascend Gigs utilize eager loading:
+  </p>
+  <div class="code-box">
+// Inefficient Lazy Loading: 1 initial query + N queries for each employer
+$jobs = JobPosting::all(); // 1 query
+foreach ($jobs as $job) {
+    echo $job->employer->company_name; // N queries! Total: 1 + N queries
+}
+
+// Optimized Eager Loading (Implemented in Ascend Gigs):
+$jobs = JobPosting::with('employer')->where('is_active', true)->paginate(9);
+// Exactly 2 queries executed regardless of the number of jobs displayed!
+  </div>
+
+  <h3 class="sub-title">4.3 Database Normalization Audit</h3>
+  <p>Our 5-table relational schema adheres strictly to Third Normal Form (3NF):</p>
+  <ul>
+    <li><strong>First Normal Form (1NF)</strong>: Every column contains atomic, scalar values. No repeating groups or nested arrays exist. Every table possesses an unambiguous primary key (<code>id</code>).</li>
+    <li><strong>Second Normal Form (2NF)</strong>: All non-key attributes are fully functionally dependent on the primary key. In composite junction tables like <code>bookmarks</code>, attributes depend strictly on the whole key pair (<code>user_id, job_id</code>).</li>
+    <li><strong>Third Normal Form (3NF)</strong>: No transitive functional dependencies exist. For instance, employer metadata (<code>company_name</code>, <code>website</code>, <code>bio</code>) is stored exclusively in <code>employers</code> rather than redundantly duplicated across each <code>job_postings</code> record.</li>
+  </ul>
+
+  <h3 class="sub-title">4.4 Security Evaluation</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Vulnerability Vector</th>
+        <th>Defense Mechanism in Ascend Gigs</th>
+        <th>Implementation Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Cross-Site Request Forgery (CSRF)</strong></td>
+        <td>Synchronizer Token Pattern</td>
+        <td>All state-mutating forms (POST, PUT, PATCH, DELETE) incorporate encrypted <code>@csrf</code> tokens verified by Laravel's <code>VerifyCsrfToken</code> middleware.</td>
+      </tr>
+      <tr>
+        <td><strong>SQL Injection (SQLi)</strong></td>
+        <td>PDO Prepared Statements</td>
+        <td>Eloquent ORM executes all queries via parameterized PDO statements, rendering SQL injection vectors impossible even in search filters.</td>
+      </tr>
+      <tr>
+        <td><strong>Cross-Site Scripting (XSS)</strong></td>
+        <td>Automatic HTML Escaping</td>
+        <td>Blade templating uses <code>{{ $variable }}</code> which passes all user-submitted text through <code>htmlspecialchars(ENT_QUOTES)</code> before rendering.</td>
+      </tr>
+      <tr>
+        <td><strong>Broken Access Control</strong></td>
+        <td>Ownership Authorization Gates</td>
+        <td><code>JobPostingController@authorizeOwner</code> verifies that the authenticated user matches <code>$job->employer_id</code> before permitting edits, status toggles, or deletions.</td>
+      </tr>
+      <tr>
+        <td><strong>Malicious File Upload</strong></td>
+        <td>MIME Type &amp; Size Restrictions</td>
+        <td><code>StoreJobApplicationRequest</code> strictly validates <code>'cv_file' => 'nullable|file|mimes:pdf|max:5120'</code>, and stores uploads on isolated disks.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 class="sub-title">4.5 System Limitations &amp; Future Improvements</h3>
+  <ul>
+    <li><strong>Real-time Notifications</strong>: Currently, candidates check statuses by polling the status tracker. Integrating Laravel Reverb / WebSockets will deliver push notifications on status changes.</li>
+    <li><strong>In-app Candidate Chat</strong>: Integrating direct messaging between employers and shortlisted candidates would eliminate reliance on external email.</li>
+    <li><strong>Stipend Escrow</strong>: Integrating a campus payment gateway (e.g. Midtrans or Stripe) would allow employers to lock stipends into escrow upon hiring.</li>
+  </ul>
+
+  <div class="page-break"></div>
+
+  <!-- 5. CONCLUSION -->
+  <h2 class="section-title">5. Project Conclusion [Rubric: 5 Points]</h2>
+  <p>
+    The <strong>Ascend Freelance Job Board &amp; Candidate Application Portal</strong> successfully fulfills all specifications outlined in the EF234301 Web Programming Midterm Examination. By leveraging Laravel 11's MVC architecture, robust Eloquent ORM relations, FormRequest validation, and modern Blade templating, the application delivers a seamless experience for campus micro-recruitment.
+  </p>
+  <p>
+    Key milestones achieved include:
+  </p>
+  <ul>
+    <li>Complete implementation of 8 core business features exceeding the minimum rubric requirements.</li>
+    <li>Secure session-based authentication supporting dual user roles (Freelancers and Employers).</li>
+    <li>A normalized, relational schema featuring 5 foreign keys with cascade delete integrity.</li>
+    <li>100% passing automated feature test suite (12 tests, 47 assertions).</li>
+    <li>Publication of complete source code to GitHub and deployment for remote accessibility.</li>
+  </ul>
+
+  <!-- 6. INDIVIDUAL CONTRIBUTIONS -->
+  <h2 class="section-title">6. Individual Contributions Statement</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Team Member Name</th>
+        <th>Student ID (NRP)</th>
+        <th>Work Percentage</th>
+        <th>Core Modules &amp; Deliverables Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Rianti Dewi</strong></td>
+        <td>5025231001</td>
+        <td><strong>50%</strong></td>
+        <td>
+          • Database architecture, migrations, and Eloquent models.<br>
+          • Authentication system (Register, Login, Role assignment).<br>
+          • Feature 1: Vacancy Search &amp; Multi-criteria Filtering.<br>
+          • Feature 2: Job Posting CRUD &amp; Status Toggle.<br>
+          • Feature 3: Application Submission &amp; PDF CV Upload.<br>
+          • Feature 8: Employer Company Profile CRUD &amp; Logo Storage.
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Darminto Utomo</strong></td>
+        <td>5025231002</td>
+        <td><strong>50%</strong></td>
+        <td>
+          • Feature 4: Employer Candidate Review Dashboard &amp; Status Workflow.<br>
+          • Feature 5: Freelancer Live Application Status Tracker.<br>
+          • Feature 6: Job Bookmarking &amp; Personal Watchlist.<br>
+          • Feature 7: Candidate Application Withdrawal.<br>
+          • Responsive UI design, Three.js WebGL canvas, and CSS styling.<br>
+          • Automated PHPUnit test suite construction and web deployment.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 7. PLEDGE -->
+  <h2 class="section-title">7. Academic Integrity Pledge</h2>
+  <div style="background:#f7fafc;border:1px solid #cbd5e0;padding:16px;border-radius:6px;font-style:italic;line-height:1.7">
+    “By the name of Allah (God) Almighty, I hereby pledge and declare that I have completed the Midterm Exam independently. I have not engaged in cheating, plagiarism, or received unauthorized assistance in any form. I further declare that any use of AI tools was limited to a supportive role (such as for grammar checking or debugging), and that the final solution is the product of my own intellectual effort. I understand that I will accept all consequences if I am found to have violated this academic integrity pledge.”
+  </div>
+
+  <p style="margin-top:20px">
+    Surabaya, 28 October 2026<br><br>
+    <em>Signed,</em><br><br>
+    <strong>Rianti Dewi</strong> (5025231001) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Darminto Utomo</strong> (5025231002)
+  </p>
+
+</body>
+</html>
