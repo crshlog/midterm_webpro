@@ -12,7 +12,6 @@ jobs:
     trigger: pre-deployment
     action:
       execute:
-        # Memanggil PHP artisan migrate --force
         cli_args:
           - "artisan"
           - "migrate"
