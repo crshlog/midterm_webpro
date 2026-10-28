@@ -5,13 +5,28 @@ namespace App\Http\Controllers;
 use App\Models\Employer;
 use App\Models\JobApplication;
 use App\Models\JobPosting;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class JobBoardController extends Controller
 {
+    protected function ensureSeeded(): void
+    {
+        try {
+            if (Schema::hasTable('job_postings') && JobPosting::count() < 100) {
+                Artisan::call('db:seed', ['--force' => true]);
+            }
+        } catch (\Throwable $e) {
+            // Gracefully continue
+        }
+    }
+
     public function landing(): View
     {
+        $this->ensureSeeded();
+
         $featuredJobs = JobPosting::with('employer')
             ->where('is_active', true)
             ->latest()
@@ -30,6 +45,8 @@ class JobBoardController extends Controller
 
     public function index(Request $request): View
     {
+        $this->ensureSeeded();
+
         $filters = $request->only(['search', 'job_type', 'min_budget', 'max_budget', 'sort']);
         
         $jobs = JobPosting::with('employer')

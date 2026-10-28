@@ -3,11 +3,31 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DebugAccountController;
 use App\Http\Controllers\EmployerProfileController;
 use App\Http\Controllers\JobApplicationController;
 use App\Http\Controllers\JobBoardController;
 use App\Http\Controllers\JobPostingController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
+
+// Production Database Seeding & Migration Trigger
+Route::get('/seed-database', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('db:seed', ['--force' => true]);
+        return redirect()->route('jobs.index')->with('success', 'Database seeded with all 6 demo gigs and 3 employers!');
+    } catch (\Throwable $e) {
+        return response('<h1>Error during seeding:</h1><pre>' . $e->getMessage() . '</pre>', 500);
+    }
+});
+
+// Quality Control & Debugger Account Tracker (for Fakhrian / QA & testing)
+Route::prefix('debug')->name('debug.')->group(function () {
+    Route::get('/accounts', [DebugAccountController::class, 'index'])->name('accounts.index');
+    Route::post('/accounts/{user}/switch', [DebugAccountController::class, 'switch'])->name('accounts.switch');
+    Route::delete('/accounts/{user}', [DebugAccountController::class, 'destroy'])->name('accounts.destroy');
+});
 
 // Public Landing Page & Feature 1: Job Board Search & Filters
 Route::get('/', [JobBoardController::class, 'landing'])->name('home');

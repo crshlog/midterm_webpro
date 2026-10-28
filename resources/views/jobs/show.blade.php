@@ -147,7 +147,7 @@
       @if($job->employer->logo_image)
         <img src="{{ asset('storage/' . $job->employer->logo_image) }}" alt="Logo" style="width:52px;height:52px;border-radius:12px;object-fit:cover;border:1px solid var(--line)">
       @else
-        <div style="width:52px;height:52px;border-radius:12px;background:rgba(93,240,168,.1);border:1px solid rgba(93,240,168,.25);display:flex;align-items:center;justify-content:center;color:var(--accent);font-weight:800;font-size:20px">
+        <div style="width:52px;height:52px;border-radius:12px;background:var(--accent-muted);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-weight:800;font-size:20px">
           {{ substr($job->employer->company_name ?? 'E', 0, 1) }}
         </div>
       @endif

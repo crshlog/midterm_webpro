@@ -76,9 +76,10 @@
       <p class="meta"><strong>Instructors:</strong> MM Irfan Subakti [yifana@gmail.com]<br>
       <strong>Teaching Assistants:</strong> Callista Fidelya Roba Gultom, Kevin Andreas</p>
       
-      <p class="meta" style="margin-top:16px"><strong>Group Project Members &amp; Contributions:</strong><br>
-      • <strong>Rianti Dewi</strong> (5025231001) — <strong>50%</strong> (Database Migrations, Models, Auth, Features 1, 2, 3, 8)<br>
-      • <strong>Darminto Utomo</strong> (5025231002) — <strong>50%</strong> (Features 4, 5, 6, 7, Responsive UI, Unit Tests, Deployment)</p>
+      <p class="meta" style="margin-top:16px"><strong>Group Project Members &amp; Contributions (Equal 33.33% / 100/3% each):</strong><br>
+        • <strong>Rinaltra Nabasa S</strong> (5025251024) — <strong>33.33%</strong> (Web Design, Blade Frontend Architecture, Responsive UI, Three.js 3D Globe)<br>
+        • <strong>Fakhrian Elanta</strong> (5025251019) — <strong>33.33%</strong> (Debugging, Quality Control, Automated PHPUnit Tests, Midterm Report Documentation)<br>
+        • <strong>Haidar Abiyyu at Taqy</strong> (5025521121) — <strong>33.33%</strong> (Database Architecture, CDM/PDM Modeling, Migrations, 100 Gigs Seeder, Backend Controllers)</p>
 
       <p class="meta" style="margin-top:16px">
         <strong>GitHub Repository:</strong> <a href="https://github.com/PopSharkkk/WebProgramming" target="_blank">https://github.com/PopSharkkk/WebProgramming</a><br>
@@ -150,6 +151,11 @@
     <li><strong>Job Application</strong>: Represents a student candidate's pitch, containing pitch narrative, portfolio hyperlink, PDF CV file, and hiring stage status (Pending, Interviewed, Hired, Rejected). (N:1 with Job Posting, N:1 with User).</li>
     <li><strong>Bookmark</strong>: Represents saved opportunities in a student's personal watchlist. (M:N junction between User and Job Posting).</li>
   </ul>
+
+  <div style="text-align:center;margin:18px 0">
+    <img src="/assets/cdm_diagram.jpg" style="max-width:100%;border-radius:8px;border:1px solid #cbd5e0" alt="CDM Diagram">
+    <p style="font-size:12px;color:#718096;font-style:italic;margin-top:6px">Figure 1: Conceptual Data Model (CDM) diagram showing domain entities, attributes, and relationships.</p>
+  </div>
 
   <h3 class="sub-title">2.2 Physical Data Model (PDM) &amp; Relational Schema</h3>
   <p>The physical schema is implemented with rigorous data types, indexes, and referential constraints across 5 relational tables:</p>
@@ -227,6 +233,11 @@
       <tr><td><code>job_id</code></td><td>BIGINT UNSIGNED NOT NULL</td><td>FOREIGN KEY &rarr; job_postings(id)</td><td>UNIQUE(user_id, job_id)</td></tr>
     </tbody>
   </table>
+
+  <div style="text-align:center;margin:18px 0">
+    <img src="/assets/pdm_diagram.jpg" style="max-width:100%;border-radius:8px;border:1px solid #cbd5e0" alt="PDM Diagram">
+    <p style="font-size:12px;color:#718096;font-style:italic;margin-top:6px">Figure 2: Physical Data Model (PDM) diagram with primary keys, foreign keys, data types, and indexes.</p>
+  </div>
 
   <h3 class="sub-title">2.3 Foreign Keys &amp; Referential Integrity Matrix</h3>
   <div class="callout callout-success">
@@ -374,6 +385,17 @@
     </tbody>
   </table>
 
+  <div style="display:grid;grid-template-columns:1fr;gap:20px;margin:20px 0">
+    <div style="text-align:center">
+      <img src="/assets/site_jobs.png" style="max-width:100%;border-radius:8px;border:1px solid #cbd5e0" alt="Student Freelance Job Board">
+      <p style="font-size:12px;color:#718096;font-style:italic;margin-top:6px">Figure 3: Feature 1 (Vacancy Discovery) — Student Freelance Job Board with multi-criteria search, budget filter, and active gig listings.</p>
+    </div>
+    <div style="text-align:center">
+      <img src="/assets/site_home.png" style="max-width:100%;border-radius:8px;border:1px solid #cbd5e0" alt="Ascend Homepage">
+      <p style="font-size:12px;color:#718096;font-style:italic;margin-top:6px">Figure 4: Ascend Gigs homepage featuring interactive Three.js 3D globe and live platform statistics.</p>
+    </div>
+  </div>
+
   <h3 class="sub-title">3.4 Automated Test Suite Verification</h3>
   <div class="callout callout-success">
     <strong>Test Coverage:</strong> 12 test cases with 47 automated assertions passing in 1.56s using PHPUnit and Laravel Feature Testing.
@@ -505,29 +527,39 @@ $jobs = JobPosting::with('employer')->where('is_active', true)->paginate(9);
     </thead>
     <tbody>
       <tr>
-        <td><strong>Rianti Dewi</strong></td>
-        <td>5025231001</td>
-        <td><strong>50%</strong></td>
+        <td><strong>Rinaltra Nabasa S</strong></td>
+        <td>5025251024</td>
+        <td><strong>33.33%</strong></td>
         <td>
-          • Database architecture, migrations, and Eloquent models.<br>
-          • Authentication system (Register, Login, Role assignment).<br>
-          • Feature 1: Vacancy Search &amp; Multi-criteria Filtering.<br>
-          • Feature 2: Job Posting CRUD &amp; Status Toggle.<br>
-          • Feature 3: Application Submission &amp; PDF CV Upload.<br>
-          • Feature 8: Employer Company Profile CRUD &amp; Logo Storage.
+          • Web design and frontend engineering architecture.<br>
+          • Responsive Blade UI system across desktop (1440px), tablet (820px), and mobile (375px).<br>
+          • Interactive Three.js WebGL 3D Earth hero canvas &amp; visual aesthetics.<br>
+          • Client-side interactions, vacancy card layouts, and status badge styling.<br>
+          • Feature 1 (Vacancy Discovery &amp; Filtering UI) and Feature 6 (Bookmarking Watchlist UI).
         </td>
       </tr>
       <tr>
-        <td><strong>Darminto Utomo</strong></td>
-        <td>5025231002</td>
-        <td><strong>50%</strong></td>
+        <td><strong>Haidar Abiyyu at Taqy</strong></td>
+        <td>5025521121</td>
+        <td><strong>33.33%</strong></td>
         <td>
-          • Feature 4: Employer Candidate Review Dashboard &amp; Status Workflow.<br>
-          • Feature 5: Freelancer Live Application Status Tracker.<br>
-          • Feature 6: Job Bookmarking &amp; Personal Watchlist.<br>
-          • Feature 7: Candidate Application Withdrawal.<br>
-          • Responsive UI design, Three.js WebGL canvas, and CSS styling.<br>
-          • Automated PHPUnit test suite construction and web deployment.
+          • Database architecture &amp; data modeling (Conceptual CDM &amp; Physical PDM).<br>
+          • Relational database schema migrations &amp; 5 cascading foreign key constraints.<br>
+          • Comprehensive 100 Job Gigs database seeder with realistic test datasets across 10 categories.<br>
+          • Backend controllers, Eloquent ORM relationships, and RESTful routing.<br>
+          • Feature 2 (Vacancy CRUD &amp; Toggle) and Feature 3 (Application submission &amp; PDF upload).
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Fakhrian Elanta</strong></td>
+        <td>5025251019</td>
+        <td><strong>33.33%</strong></td>
+        <td>
+          • Debugging, edge-case testing, and comprehensive website quality control (QC).<br>
+          • Automated test suite engineering (PHPUnit with 12 feature tests and 47 passing assertions).<br>
+          • Authorization security verification (RBAC, ownership policies, CSRF).<br>
+          • Feature 4 (Applicant Review Workflow), Feature 5 (Tracking Dashboard), Feature 7 (Withdrawal).<br>
+          • Technical project documentation and Midterm Report authoring.
         </td>
       </tr>
     </tbody>
@@ -542,7 +574,7 @@ $jobs = JobPosting::with('employer')->where('is_active', true)->paginate(9);
   <p style="margin-top:20px">
     Surabaya, 28 October 2026<br><br>
     <em>Signed,</em><br><br>
-    <strong>Rianti Dewi</strong> (5025231001) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Darminto Utomo</strong> (5025231002)
+    <strong>Rinaltra Nabasa S</strong> (5025251024) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Fakhrian Elanta</strong> (5025251019) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Haidar Abiyyu at Taqy</strong> (5025521121)
   </p>
 
 </body>

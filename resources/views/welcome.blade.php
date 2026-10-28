@@ -6,7 +6,7 @@
   <title>Ascend — Freelance Job Board &amp; Student Application Portal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/ascend.css') }}">
   <script type="importmap">
   { "imports": {
@@ -53,14 +53,14 @@
       </div>
 
       <div class="logos" data-reveal style="--rd:420ms">
-        <div class="logos-label">Trusted by campus student clubs &amp; local startups</div>
+        <div class="logos-label">Trusted by campus student organizations &amp; local studios</div>
         <div class="logos-row">
-          <span class="logo">Nexus Studio</span>
-          <span class="logo">NovaTech AI</span>
-          <span class="logo">Campus Tutors</span>
-          <span class="logo">ByteCraft</span>
-          <span class="logo">Apex Media</span>
-          <span class="logo">Vertx Labs</span>
+          <span class="logo">Kinetix Media</span>
+          <span class="logo">Beacon Tutors</span>
+          <span class="logo">Loom Design Co.</span>
+          <span class="logo">Horizon Labs</span>
+          <span class="logo">Prism Collective</span>
+          <span class="logo">Aether Systems</span>
         </div>
       </div>
     </header>

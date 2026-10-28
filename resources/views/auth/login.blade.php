@@ -14,12 +14,18 @@
     <div style="background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:20px;font-size:12.5px">
       <div style="font-weight:700;color:var(--accent);margin-bottom:6px">⚡ Quick Demo Test Credentials (password: password)</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <button type="button" class="btn btn-ghost btn-sm" onclick="setDemo('employer@nexus.io')" style="font-size:12px;padding:4px 10px">
+        <button type="button" class="btn btn-ghost btn-sm" onclick="setDemo('employer.nexus@ascend.io')" style="font-size:12px;padding:4px 10px">
           Employer Demo (Nexus)
         </button>
         <button type="button" class="btn btn-ghost btn-sm" onclick="setDemo('freelancer@ascend.io')" style="font-size:12px;padding:4px 10px">
           Freelancer Demo (Alex Rivera)
         </button>
+      </div>
+      <div style="margin-top:10px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center">
+        <span style="color:var(--muted);font-size:11.5px">Debugger &amp; QC tool:</span>
+        <a href="{{ route('debug.accounts.index') }}" style="color:#f59e0b;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:4px">
+          🛠 QA Accounts Tracker &amp; Switcher →
+        </a>
       </div>
     </div>
 

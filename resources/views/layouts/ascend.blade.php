@@ -6,7 +6,7 @@
   <title>@yield('title', 'Ascend — Student Freelance Job Board & Recruitment Portal')</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/ascend.css') }}">
   <script type="importmap">
   { "imports": {
@@ -19,7 +19,7 @@
   <canvas class="planet-canvas"></canvas>
 
   <div class="page" id="top">
-    <nav class="nav" style="border-bottom:1px solid var(--line);background:rgba(4,6,15,.75);backdrop-filter:blur(16px);position:sticky;top:0;z-index:50;max-width:100%;padding:16px max(24px, calc((100vw - var(--maxw)) / 2))">
+    <nav class="nav" style="border-bottom:1px solid var(--line);background:rgba(9,11,16,.85);backdrop-filter:blur(16px);position:sticky;top:0;z-index:50;max-width:100%;padding:16px max(24px, calc((100vw - var(--maxw)) / 2))">
       <a href="{{ route('home') }}" class="brand">
         <span class="brand-mark">▲</span> Ascend <span style="font-size:12px;color:var(--accent);letter-spacing:.08em;font-weight:600;margin-left:4px">GIGS</span>
       </a>
@@ -40,6 +40,7 @@
           <a href="{{ route('home') }}#features">Features</a>
           <a href="{{ route('home') }}#roles">For Students &amp; Businesses</a>
         @endauth
+        <a href="{{ route('debug.accounts.index') }}" class="{{ request()->routeIs('debug.accounts.*') ? 'active' : '' }}" style="color:#f59e0b;font-weight:600" title="Debugger & QA Accounts Inspector">🛠 QA Accounts</a>
       </div>
 
       <div class="nav-actions">
@@ -74,8 +75,11 @@
       @yield('content')
     </main>
 
-    <footer class="copyright" style="padding:28px 24px;margin-top:auto;border-top:1px solid var(--line);background:rgba(4,6,15,.5)">
-      © <span id="year"></span> Ascend — Freelance Job Board &amp; Candidate Application Portal (EF234301 Web Programming Midterm).
+    <footer class="copyright" style="padding:28px 24px;margin-top:auto;border-top:1px solid var(--line);background:rgba(9,11,16,.65);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+      <div>© <span id="year"></span> Ascend — Freelance Job Board &amp; Candidate Application Portal (EF234301 Web Programming Midterm).</div>
+      <div style="font-size:12px">
+        <a href="{{ route('debug.accounts.index') }}" style="color:#f59e0b;display:inline-flex;align-items:center;gap:4px">🛠 QA Account Tracker &amp; Switcher</a>
+      </div>
     </footer>
   </div>
 

@@ -7,7 +7,7 @@
     body {
       margin: 0;
       padding: 24px;
-      background: #04060f;
+      background: #090b10;
       color: #f3f6ff;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
@@ -23,12 +23,12 @@
     }
     h1 {
       font-size: 22px;
-      color: #5df0a8;
+      color: #3b82f6;
       margin: 0 0 6px 0;
       letter-spacing: 0.02em;
     }
     p {
-      color: #9aa6c4;
+      color: #94a3b8;
       font-size: 13.5px;
       margin: 0;
     }
@@ -36,8 +36,8 @@
       width: 100%;
       max-width: 1150px;
       height: auto;
-      background: #060a18;
-      border: 1px solid rgba(150, 175, 230, 0.22);
+      background: #10131b;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
     }
@@ -58,19 +58,19 @@
 
     <!-- Relationship Lines -->
     <!-- users.id -> employers.user_id -->
-    <path d="M 270 180 L 380 180" stroke="#5df0a8" stroke-width="2" fill="none" />
-    <circle cx="275" cy="180" r="4" fill="#5df0a8" />
-    <path d="M 370 173 L 380 180 L 370 187" stroke="#5df0a8" stroke-width="2" fill="none"/>
+    <path d="M 270 180 L 380 180" stroke="#3b82f6" stroke-width="2" fill="none" />
+    <circle cx="275" cy="180" r="4" fill="#3b82f6" />
+    <path d="M 370 173 L 380 180 L 370 187" stroke="#3b82f6" stroke-width="2" fill="none"/>
 
     <!-- employers.id -> job_postings.employer_id -->
-    <path d="M 525 365 L 525 430" stroke="#5df0a8" stroke-width="2" fill="none" />
-    <circle cx="525" cy="370" r="4" fill="#5df0a8" />
-    <path d="M 518 420 L 525 430 L 532 420" stroke="#5df0a8" stroke-width="2" fill="none"/>
+    <path d="M 525 365 L 525 430" stroke="#3b82f6" stroke-width="2" fill="none" />
+    <circle cx="525" cy="370" r="4" fill="#3b82f6" />
+    <path d="M 518 420 L 525 430 L 532 420" stroke="#3b82f6" stroke-width="2" fill="none"/>
 
     <!-- job_postings.id -> job_applications.job_id -->
-    <path d="M 680 500 L 780 500" stroke="#5df0a8" stroke-width="2" fill="none" />
-    <circle cx="685" cy="500" r="4" fill="#5df0a8" />
-    <path d="M 770 493 L 780 500 L 770 507" stroke="#5df0a8" stroke-width="2" fill="none"/>
+    <path d="M 680 500 L 780 500" stroke="#3b82f6" stroke-width="2" fill="none" />
+    <circle cx="685" cy="500" r="4" fill="#3b82f6" />
+    <path d="M 770 493 L 780 500 L 770 507" stroke="#3b82f6" stroke-width="2" fill="none"/>
 
     <!-- users.id -> job_applications.applicant_id -->
     <path d="M 150 320 C 150 780, 890 780, 890 690" stroke="#9fc4ff" stroke-width="1.8" fill="none" />
@@ -89,88 +89,88 @@
 
     <!-- Table 1: users -->
     <g transform="translate(30, 60)" filter="url(#shadow)">
-      <rect width="240" height="260" rx="8" fill="#101830" stroke="rgba(150,175,230,.22)" stroke-width="1.5"/>
-      <rect width="240" height="34" rx="8" fill="#060a18"/>
-      <text x="120" y="22" fill="#5df0a8" font-weight="bold" font-size="13" text-anchor="middle">users</text>
+      <rect width="240" height="260" rx="8" fill="#1c2230" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+      <rect width="240" height="34" rx="8" fill="#10131b"/>
+      <text x="120" y="22" fill="#3b82f6" font-weight="bold" font-size="13" text-anchor="middle">users</text>
       <g font-size="11" font-family="monospace">
-        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="125" y="55" fill="#9aa6c4">BIGINT [AI]</text>
-        <text x="12" y="80" fill="#f3f6ff">    name</text><text x="125" y="80" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="12" y="105" fill="#f3f6ff">UQ  email</text><text x="125" y="105" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="12" y="130" fill="#f3f6ff">    password</text><text x="125" y="130" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="12" y="155" fill="#f3f6ff">    role</text><text x="125" y="155" fill="#9aa6c4">ENUM ('freelancer'..)</text>
-        <text x="12" y="180" fill="#f3f6ff">    phone</text><text x="125" y="180" fill="#9aa6c4">VARCHAR(255) NULL</text>
-        <text x="12" y="205" fill="#6b7796">    created_at</text><text x="125" y="205" fill="#6b7796">TIMESTAMP</text>
-        <text x="12" y="230" fill="#6b7796">    updated_at</text><text x="125" y="230" fill="#6b7796">TIMESTAMP</text>
+        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="125" y="55" fill="#94a3b8">BIGINT [AI]</text>
+        <text x="12" y="80" fill="#f3f6ff">    name</text><text x="125" y="80" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="12" y="105" fill="#f3f6ff">UQ  email</text><text x="125" y="105" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="12" y="130" fill="#f3f6ff">    password</text><text x="125" y="130" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="12" y="155" fill="#f3f6ff">    role</text><text x="125" y="155" fill="#94a3b8">ENUM ('freelancer'..)</text>
+        <text x="12" y="180" fill="#f3f6ff">    phone</text><text x="125" y="180" fill="#94a3b8">VARCHAR(255) NULL</text>
+        <text x="12" y="205" fill="#64748b">    created_at</text><text x="125" y="205" fill="#64748b">TIMESTAMP</text>
+        <text x="12" y="230" fill="#64748b">    updated_at</text><text x="125" y="230" fill="#64748b">TIMESTAMP</text>
       </g>
     </g>
 
     <!-- Table 2: employers -->
     <g transform="translate(380, 60)" filter="url(#shadow)">
-      <rect width="290" height="305" rx="8" fill="#101830" stroke="rgba(150,175,230,.22)" stroke-width="1.5"/>
-      <rect width="290" height="34" rx="8" fill="#060a18"/>
-      <text x="145" y="22" fill="#5df0a8" font-weight="bold" font-size="13" text-anchor="middle">employers</text>
+      <rect width="290" height="305" rx="8" fill="#1c2230" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+      <rect width="290" height="34" rx="8" fill="#10131b"/>
+      <text x="145" y="22" fill="#3b82f6" font-weight="bold" font-size="13" text-anchor="middle">employers</text>
       <g font-size="11" font-family="monospace">
-        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#9aa6c4">BIGINT [AI]</text>
-        <text x="12" y="80" fill="#9fc4ff">FK  user_id</text><text x="145" y="80" fill="#9aa6c4">BIGINT -> users(id)</text>
-        <text x="12" y="105" fill="#f3f6ff">    company_name</text><text x="145" y="105" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="12" y="130" fill="#f3f6ff">    industry</text><text x="145" y="130" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="12" y="155" fill="#f3f6ff">    website</text><text x="145" y="155" fill="#9aa6c4">VARCHAR(255) NULL</text>
-        <text x="12" y="180" fill="#f3f6ff">    bio</text><text x="145" y="180" fill="#9aa6c4">TEXT NULL</text>
-        <text x="12" y="205" fill="#f3f6ff">    logo_image</text><text x="145" y="205" fill="#9aa6c4">VARCHAR(255) NULL</text>
-        <text x="12" y="230" fill="#f3f6ff">    social_links</text><text x="145" y="230" fill="#9aa6c4">VARCHAR(500) NULL</text>
-        <text x="12" y="255" fill="#6b7796">    created_at</text><text x="145" y="255" fill="#6b7796">TIMESTAMP</text>
-        <text x="12" y="280" fill="#6b7796">    updated_at</text><text x="145" y="280" fill="#6b7796">TIMESTAMP</text>
+        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#94a3b8">BIGINT [AI]</text>
+        <text x="12" y="80" fill="#9fc4ff">FK  user_id</text><text x="145" y="80" fill="#94a3b8">BIGINT -> users(id)</text>
+        <text x="12" y="105" fill="#f3f6ff">    company_name</text><text x="145" y="105" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="12" y="130" fill="#f3f6ff">    industry</text><text x="145" y="130" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="12" y="155" fill="#f3f6ff">    website</text><text x="145" y="155" fill="#94a3b8">VARCHAR(255) NULL</text>
+        <text x="12" y="180" fill="#f3f6ff">    bio</text><text x="145" y="180" fill="#94a3b8">TEXT NULL</text>
+        <text x="12" y="205" fill="#f3f6ff">    logo_image</text><text x="145" y="205" fill="#94a3b8">VARCHAR(255) NULL</text>
+        <text x="12" y="230" fill="#f3f6ff">    social_links</text><text x="145" y="230" fill="#94a3b8">VARCHAR(500) NULL</text>
+        <text x="12" y="255" fill="#64748b">    created_at</text><text x="145" y="255" fill="#64748b">TIMESTAMP</text>
+        <text x="12" y="280" fill="#64748b">    updated_at</text><text x="145" y="280" fill="#64748b">TIMESTAMP</text>
       </g>
     </g>
 
     <!-- Table 3: job_postings -->
     <g transform="translate(380, 430)" filter="url(#shadow)">
-      <rect width="300" height="340" rx="8" fill="#101830" stroke="#38bdf8" stroke-width="2"/>
-      <rect width="300" height="34" rx="8" fill="#0c1f38"/>
+      <rect width="300" height="340" rx="8" fill="#1c2230" stroke="#38bdf8" stroke-width="2"/>
+      <rect width="300" height="34" rx="8" fill="#162032"/>
       <text x="150" y="22" fill="#38bdf8" font-weight="bold" font-size="13" text-anchor="middle">job_postings</text>
       <g font-size="11" font-family="monospace">
-        <text x="14" y="55" fill="#ffd27a">PK  id</text><text x="150" y="55" fill="#9aa6c4">BIGINT [AI]</text>
-        <text x="14" y="80" fill="#9fc4ff">FK  employer_id</text><text x="150" y="80" fill="#9aa6c4">BIGINT -> employers(id)</text>
-        <text x="14" y="105" fill="#f3f6ff">    title</text><text x="150" y="105" fill="#9aa6c4">VARCHAR(255)</text>
-        <text x="14" y="130" fill="#f3f6ff">    job_type</text><text x="150" y="130" fill="#9aa6c4">ENUM ('Remote'..)</text>
-        <text x="14" y="155" fill="#f3f6ff">    budget</text><text x="150" y="155" fill="#9aa6c4">DECIMAL(10,2)</text>
-        <text x="14" y="180" fill="#f3f6ff">    deadline</text><text x="150" y="180" fill="#9aa6c4">DATE</text>
-        <text x="14" y="205" fill="#f3f6ff">    requirements</text><text x="150" y="205" fill="#9aa6c4">TEXT</text>
-        <text x="14" y="230" fill="#f3f6ff">    description</text><text x="150" y="230" fill="#9aa6c4">TEXT NULL</text>
-        <text x="14" y="255" fill="#f3f6ff">    is_active</text><text x="150" y="255" fill="#9aa6c4">TINYINT(1) DEFAULT 1</text>
-        <text x="14" y="280" fill="#6b7796">    created_at</text><text x="150" y="280" fill="#6b7796">TIMESTAMP</text>
-        <text x="14" y="305" fill="#6b7796">    updated_at</text><text x="150" y="305" fill="#6b7796">TIMESTAMP</text>
+        <text x="14" y="55" fill="#ffd27a">PK  id</text><text x="150" y="55" fill="#94a3b8">BIGINT [AI]</text>
+        <text x="14" y="80" fill="#9fc4ff">FK  employer_id</text><text x="150" y="80" fill="#94a3b8">BIGINT -> employers(id)</text>
+        <text x="14" y="105" fill="#f3f6ff">    title</text><text x="150" y="105" fill="#94a3b8">VARCHAR(255)</text>
+        <text x="14" y="130" fill="#f3f6ff">    job_type</text><text x="150" y="130" fill="#94a3b8">ENUM ('Remote'..)</text>
+        <text x="14" y="155" fill="#f3f6ff">    budget</text><text x="150" y="155" fill="#94a3b8">DECIMAL(10,2)</text>
+        <text x="14" y="180" fill="#f3f6ff">    deadline</text><text x="150" y="180" fill="#94a3b8">DATE</text>
+        <text x="14" y="205" fill="#f3f6ff">    requirements</text><text x="150" y="205" fill="#94a3b8">TEXT</text>
+        <text x="14" y="230" fill="#f3f6ff">    description</text><text x="150" y="230" fill="#94a3b8">TEXT NULL</text>
+        <text x="14" y="255" fill="#f3f6ff">    is_active</text><text x="150" y="255" fill="#94a3b8">TINYINT(1) DEFAULT 1</text>
+        <text x="14" y="280" fill="#64748b">    created_at</text><text x="150" y="280" fill="#64748b">TIMESTAMP</text>
+        <text x="14" y="305" fill="#64748b">    updated_at</text><text x="150" y="305" fill="#64748b">TIMESTAMP</text>
       </g>
     </g>
 
     <!-- Table 4: bookmarks -->
     <g transform="translate(780, 60)" filter="url(#shadow)">
-      <rect width="290" height="170" rx="8" fill="#101830" stroke="rgba(150,175,230,.22)" stroke-width="1.5"/>
-      <rect width="290" height="34" rx="8" fill="#060a18"/>
+      <rect width="290" height="170" rx="8" fill="#1c2230" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+      <rect width="290" height="34" rx="8" fill="#10131b"/>
       <text x="145" y="22" fill="#ffd27a" font-weight="bold" font-size="13" text-anchor="middle">bookmarks</text>
       <g font-size="11" font-family="monospace">
-        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#9aa6c4">BIGINT [AI]</text>
-        <text x="12" y="80" fill="#9fc4ff">FK  user_id</text><text x="145" y="80" fill="#9aa6c4">BIGINT -> users(id)</text>
-        <text x="12" y="105" fill="#9fc4ff">FK  job_id</text><text x="145" y="105" fill="#9aa6c4">BIGINT -> job_postings(id)</text>
-        <text x="12" y="130" fill="#6b7796">    created_at</text><text x="145" y="130" fill="#6b7796">TIMESTAMP</text>
+        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#94a3b8">BIGINT [AI]</text>
+        <text x="12" y="80" fill="#9fc4ff">FK  user_id</text><text x="145" y="80" fill="#94a3b8">BIGINT -> users(id)</text>
+        <text x="12" y="105" fill="#9fc4ff">FK  job_id</text><text x="145" y="105" fill="#94a3b8">BIGINT -> job_postings(id)</text>
+        <text x="12" y="130" fill="#64748b">    created_at</text><text x="145" y="130" fill="#64748b">TIMESTAMP</text>
         <text x="12" y="150" fill="#e2e8f0" font-size="9">UNIQUE (user_id, job_id)</text>
       </g>
     </g>
 
     <!-- Table 5: job_applications -->
     <g transform="translate(780, 430)" filter="url(#shadow)">
-      <rect width="290" height="260" rx="8" fill="#101830" stroke="rgba(150,175,230,.22)" stroke-width="1.5"/>
-      <rect width="290" height="34" rx="8" fill="#060a18"/>
-      <text x="145" y="22" fill="#5df0a8" font-weight="bold" font-size="13" text-anchor="middle">job_applications</text>
+      <rect width="290" height="260" rx="8" fill="#1c2230" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.5"/>
+      <rect width="290" height="34" rx="8" fill="#10131b"/>
+      <text x="145" y="22" fill="#3b82f6" font-weight="bold" font-size="13" text-anchor="middle">job_applications</text>
       <g font-size="11" font-family="monospace">
-        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#9aa6c4">BIGINT [AI]</text>
-        <text x="12" y="80" fill="#9fc4ff">FK  job_id</text><text x="145" y="80" fill="#9aa6c4">BIGINT -> job_postings(id)</text>
-        <text x="12" y="105" fill="#9fc4ff">FK  applicant_id</text><text x="145" y="105" fill="#9aa6c4">BIGINT -> users(id)</text>
-        <text x="12" y="130" fill="#f3f6ff">    cover_letter</text><text x="145" y="130" fill="#9aa6c4">TEXT</text>
-        <text x="12" y="155" fill="#f3f6ff">    portfolio_url</text><text x="145" y="155" fill="#9aa6c4">VARCHAR(255) NULL</text>
-        <text x="12" y="180" fill="#f3f6ff">    cv_file</text><text x="145" y="180" fill="#9aa6c4">VARCHAR(255) NULL</text>
-        <text x="12" y="205" fill="#f3f6ff">    status</text><text x="145" y="205" fill="#9aa6c4">ENUM ('Pending'..)</text>
-        <text x="12" y="230" fill="#6b7796">    created_at</text><text x="145" y="230" fill="#6b7796">TIMESTAMP</text>
+        <text x="12" y="55" fill="#ffd27a">PK  id</text><text x="145" y="55" fill="#94a3b8">BIGINT [AI]</text>
+        <text x="12" y="80" fill="#9fc4ff">FK  job_id</text><text x="145" y="80" fill="#94a3b8">BIGINT -> job_postings(id)</text>
+        <text x="12" y="105" fill="#9fc4ff">FK  applicant_id</text><text x="145" y="105" fill="#94a3b8">BIGINT -> users(id)</text>
+        <text x="12" y="130" fill="#f3f6ff">    cover_letter</text><text x="145" y="130" fill="#94a3b8">TEXT</text>
+        <text x="12" y="155" fill="#f3f6ff">    portfolio_url</text><text x="145" y="155" fill="#94a3b8">VARCHAR(255) NULL</text>
+        <text x="12" y="180" fill="#f3f6ff">    cv_file</text><text x="145" y="180" fill="#94a3b8">VARCHAR(255) NULL</text>
+        <text x="12" y="205" fill="#f3f6ff">    status</text><text x="145" y="205" fill="#94a3b8">ENUM ('Pending'..)</text>
+        <text x="12" y="230" fill="#64748b">    created_at</text><text x="145" y="230" fill="#64748b">TIMESTAMP</text>
       </g>
     </g>
   </svg>

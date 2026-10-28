@@ -1,1 +1,2 @@
-
+# SQLite database is tracked to deliver pre-seeded 100 gigs out-of-the-box
+database.sqlite

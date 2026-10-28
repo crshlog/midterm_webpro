@@ -21,7 +21,7 @@
         @if($employer->logo_image)
           <img src="{{ asset('storage/' . $employer->logo_image) }}" alt="Current Logo" style="width:72px;height:72px;border-radius:14px;object-fit:cover;border:1px solid var(--line-strong)">
         @else
-          <div style="width:72px;height:72px;border-radius:14px;background:rgba(93,240,168,.12);border:1px solid rgba(93,240,168,.3);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:26px;font-weight:800">
+          <div style="width:72px;height:72px;border-radius:14px;background:var(--accent-muted);border:1px solid var(--accent-border);display:flex;align-items:center;justify-content:center;color:#60a5fa;font-size:26px;font-weight:800">
             {{ substr($employer->company_name ?? 'E', 0, 1) }}
           </div>
         @endif

@@ -7,19 +7,25 @@ echo  EF234301 Web Programming (D) Midterm Submission Generator
 echo =====================================================================
 echo.
 
-set /p S1_ID="Enter Student 1 ID/NRP (default 5025231001): "
-if "!S1_ID!"=="" set S1_ID=5025231001
+set /p S1_ID="Enter Student 1 ID/NRP (default 5025251024): "
+if "!S1_ID!"=="" set S1_ID=5025251024
 
-set /p S1_NAME="Enter Student 1 Name (default RiantiDewi): "
-if "!S1_NAME!"=="" set S1_NAME=RiantiDewi
+set /p S1_NAME="Enter Student 1 Name (default RinaltraNabasaS): "
+if "!S1_NAME!"=="" set S1_NAME=RinaltraNabasaS
 
-set /p S2_ID="Enter Student 2 ID/NRP (default 5025231002): "
-if "!S2_ID!"=="" set S2_ID=5025231002
+set /p S2_ID="Enter Student 2 ID/NRP (default 5025251019): "
+if "!S2_ID!"=="" set S2_ID=5025251019
 
-set /p S2_NAME="Enter Student 2 Name (default DarmintoUtomo): "
-if "!S2_NAME!"=="" set S2_NAME=DarmintoUtomo
+set /p S2_NAME="Enter Student 2 Name (default FakhrianElanta): "
+if "!S2_NAME!"=="" set S2_NAME=FakhrianElanta
 
-set ZIPNAME=EF234301_WebPro_MID_!S1_ID!_!S1_NAME!_!S2_ID!_!S2_NAME!.ZIP
+set /p S3_ID="Enter Student 3 ID/NRP (default 5025521121): "
+if "!S3_ID!"=="" set S3_ID=5025521121
+
+set /p S3_NAME="Enter Student 3 Name (default HaidarAbiyyuatTaqy): "
+if "!S3_NAME!"=="" set S3_NAME=HaidarAbiyyuatTaqy
+
+set ZIPNAME=EF234301_WebPro_MID_!S1_ID!_!S1_NAME!_!S2_ID!_!S2_NAME!_!S3_ID!_!S3_NAME!.ZIP
 
 echo.
 echo Compiling Report.PDF...

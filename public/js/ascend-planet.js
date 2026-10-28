@@ -53,17 +53,17 @@ if (canvas) {
   const PLANET_CLOUDS_PNG = `${ASSET_BASE_URL}/planet-clouds.png`;
 
   const CONFIG = {
-    rimColor:'#c1faff', rimPower:2.4, nightLights:10, terrainDepth:0.33, terrainShade:1.3,
-    oceanGlint:0.45, oceanDeep:0.12, oceanFlow:3, oceanFlowSpeed:0.8, oceanFlowScale:2.1,
-    glowColor:'#3a6cff', glowIntensity:3.35, planetRadius:1.95, spin:0.03, initRotation:2.07,
+    rimColor:'#93c5fd', rimPower:2.8, nightLights:8, terrainDepth:0.33, terrainShade:1.3,
+    oceanGlint:0.35, oceanDeep:0.10, oceanFlow:2.5, oceanFlowSpeed:0.6, oceanFlowScale:2.1,
+    glowColor:'#1d4ed8', glowIntensity:1.15, planetRadius:1.95, spin:0.025, initRotation:2.07,
     tilt:0.37, autoRotate:0,
-    cloud1Height:1.005, cloud1Opacity:0.6, cloud1Spin:0.06,
-    cloud2Height:1.03, cloud2Opacity:0.5, cloud2Spin:0.14,
-    cloud3Height:1.075, cloud3Opacity:0.5, cloud3Spin:0.1,
-    bgColor:'#040a1e', flameColor:'#3a6cff', flameColor2:'#c1faff', flameAmt:0.15,
-    atmoColor:'#9fc4ff', atmoCount:320, atmoSize:22, atmoSpeed:0.8,
-    starColor:'#cfe0ff', starCount:1400, starSize:1.6, starFlicker:1,
-    markerColor:'#ffd27a', markerCount:60, markerSize:16, markerSpeed:0.5,
+    cloud1Height:1.005, cloud1Opacity:0.45, cloud1Spin:0.05,
+    cloud2Height:1.03, cloud2Opacity:0.38, cloud2Spin:0.11,
+    cloud3Height:1.075, cloud3Opacity:0.38, cloud3Spin:0.08,
+    bgColor:'#090b10', flameColor:'#2563eb', flameColor2:'#93c5fd', flameAmt:0.08,
+    atmoColor:'#60a5fa', atmoCount:220, atmoSize:18, atmoSpeed:0.6,
+    starColor:'#cbd5e1', starCount:950, starSize:1.2, starFlicker:0.8,
+    markerColor:'#38bdf8', markerCount:40, markerSize:14, markerSpeed:0.4,
   };
   const LAYERS = { NONE:0, TORUS_SCENE:1, BLOOM_SCENE:2, ENTIRE_SCENE:3 };
 
